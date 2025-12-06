@@ -1,4 +1,4 @@
-package alex.advent.of.code.day1;
+package com.alex.advent.of.code.day1;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import alex.advent.of.code.commons.ProblemsBase;
+import com.alex.advent.of.code.commons.ProblemsBase;
 
 public class Day1Problem1 implements ProblemsBase {
 

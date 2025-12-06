@@ -1,6 +1,6 @@
-package alex.advent.of.code.day1;
+package com.alex.advent.of.code.day1;
 
-import alex.advent.of.code.commons.ProblemsBase;
+import com.alex.advent.of.code.commons.ProblemsBase;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -47,7 +47,6 @@ public class Day1Problem2 implements ProblemsBase {
         }
         currentPosition = (currentPosition + clicks) % 100;
       } else if (side.equals("L")) {
-        // find t in 1..clicks such that (currentPosition - t) % 100 == 0
         int countToZero = currentPosition;
         if (currentPosition == 0) {
           countToZero = 100;

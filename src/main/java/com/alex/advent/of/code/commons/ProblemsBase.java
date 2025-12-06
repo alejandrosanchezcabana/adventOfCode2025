@@ -1,4 +1,4 @@
-package alex.advent.of.code.commons;
+package com.alex.advent.of.code.commons;
 
 public interface ProblemsBase {
     String run();
