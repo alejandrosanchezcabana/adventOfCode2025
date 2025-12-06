@@ -19,7 +19,7 @@ public class Day1Problem2 implements ProblemsBase {
 
     try (BufferedReader reader = new BufferedReader(new FileReader(FILENAME))) {
       for (String line; (line = reader.readLine()) != null; ) {
-        movements.add(line);
+        movements.add(line.trim());
       }
     } catch (FileNotFoundException ex) {
       System.out.println("Missing file :" + FILENAME);
@@ -28,7 +28,6 @@ public class Day1Problem2 implements ProblemsBase {
     }
 
     int numberOfZeros = GetNumberOfZeros(movements);
-
 
     return String.valueOf(numberOfZeros);
   }
@@ -41,38 +40,22 @@ public class Day1Problem2 implements ProblemsBase {
       String side = movement.substring(0, 1);
       int clicks = Integer.parseInt(movement.substring(1));
 
-      System.out.println("Current position: " + currentPosition + ", movement: " + movement);
-
       if (side.equals("R")) {
-        currentPosition += clicks;
+        int countToZero = 100 - currentPosition;
+        if (clicks >= countToZero) {
+          numberOfZeros += ((clicks - countToZero) / 100) + 1;
+        }
+        currentPosition = (currentPosition + clicks) % 100;
       } else if (side.equals("L")) {
-        currentPosition -= clicks;
-      }
-
-      System.out.println("New position: " + currentPosition);
-
-      int timesOverZero = 0;
-
-      while (currentPosition > 99) {
-        currentPosition -= 100;
-        if (currentPosition != 0) {
-          timesOverZero++;
+        // find t in 1..clicks such that (currentPosition - t) % 100 == 0
+        int countToZero = currentPosition;
+        if (currentPosition == 0) {
+          countToZero = 100;
         }
-      }
-
-      while (currentPosition < 0) {
-        currentPosition += 100;
-        if (currentPosition != 0) {
-          timesOverZero++;
+        if (clicks >= countToZero) {
+          numberOfZeros += ((clicks - countToZero) / 100) + 1;
         }
-      }
-
-      numberOfZeros += timesOverZero - 1;
-
-      System.out.println("Adjusted position: " + currentPosition);
-
-      if (currentPosition == 0) {
-        numberOfZeros++;
+        currentPosition = ((currentPosition - clicks) % 100 + 100) % 100;
       }
     }
     return numberOfZeros;

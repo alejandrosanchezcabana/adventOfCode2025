@@ -51,12 +51,12 @@ public class Day1Problem1 implements ProblemsBase {
 
       System.out.println("New position: " + currentPosition);
 
-      while (currentPosition > 99) {
-        currentPosition -= 100;
-      }
-
-      while (currentPosition < 0) {
-        currentPosition += 100;
+      while (currentPosition > 99 || currentPosition < 0) {
+        if (currentPosition > 99) {
+          currentPosition -= 100;
+        } else {
+          currentPosition += 100;
+        }
       }
 
       System.out.println("Adjusted position: " + currentPosition);
