@@ -11,7 +11,7 @@ import com.alex.advent.of.code.commons.ProblemsBase;
 
 public class Day1Problem1 implements ProblemsBase {
 
-  private static final String FILENAME = "src/main/java/alex/advent/of/code/day1/day1_input.txt";
+  private static final String FILENAME = "src/main/java/com/alex/advent/of/code/day1/day1_input.txt";
 
   @Override
   public String run() {
